@@ -1,0 +1,17 @@
+Timestamp,Address,ZIP,FullName,FooDuration,BarDuration,TotalDuration,Notes
+
+4/i1/11 11:00:00 AM,"this should raise a ValueError, since the Timestamp contains invalid values",94560,Foo,1:23:32.123,1:32:33.123,0,notes
+3/12/14 12:00:00 AM,"this should raise a ValueError because the duration contains invalid values",94560,foo,111:23:32.123,1:320h:33.123,0,notes
+2/29/16 12:11:11 PM,"this is not valid since it only contains 7 columns",94560,foo,31:23:32.123,1:32:33.123,0
+1/1/11 12:00:010 AM,"this should raise a ValueError because the time contains to many digits",94560,foo,1:23:32.123,0:00:00.000,0, notes
+12/31/16 11:59:59 PM,"too many columns", "for sure invalid", 94560,foo,1:23:32.123,1:32:33.123,0,notes
+,5/12/10 4:48:12 PM,Høøük¡,1231,Sleeper Service,1:23:32.123,1:32:33.123,0,notes
+20/11/11 11:11:11 AM,"contains invalid month, should return ValueError",94560,foo,1:23:32.123,1:32:33.123,0, notes
+10/5/12 10:31:11 PM,"contains invalid ZIP",ZIP,foo,1:23:32.123,1:32:33.123,0,notes
+10/2/04 8:44:11,"invalid time format",94560,foo,1:23:32.123,1:32:33.123,0,
+10/2/04 8:44:11 PM,"invalid time format",94560,foo,::.123,1:32:33.123,0,
+12/12/01 11:00:01 AM,"no name",94121,,0:15:0.1,1:0:0.2,0,notes
+12/12/01 11:00:01 AM,,"no address",94121,0:15:0.1,1:0:0.2,0,notes
+12/12/01 11:00:01 AM,"no zip",,name,0:15:0.1,1:0:0.2,0,notes
+
+
