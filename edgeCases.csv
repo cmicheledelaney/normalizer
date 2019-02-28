@@ -1,0 +1,7 @@
+Timestamp,Address,ZIP,FullName,FooDuration,BarDuration,TotalDuration,Notes
+12/31/01 11:59:00 PM,"date to new a new year",94121,Monkey Alberto,1:23:32.123,1:32:33.123,0,notes
+12/12/01 11:59:59 AM,"date",94121,Monkey Alberto,1:23:32.123,1:32:33.123,0,notes
+12/12/01 11:00:01 AM,"duration, check for float math weirdness",94121,Monkey Alberto,0:15:0.1,1:0:0.2,0,notes
+12/12/01 11:00:01 AM,"duration, check for float math weirdness",94121,Monkey Alberto,0:15:0.1,0:0:0.2232,0,notes
+12/12/01 11:00:01 AM,"duration, check for float math weirdness",94121,Monkey Alberto,0:15:0.1,0:0:0.2,0,notes
+12/12/01 11:00:01 AM,"duration",94121,Monkey Alberto,0:15:0,0:0:0,0,notes
