@@ -4,7 +4,7 @@ import datetime
 import pytz
 
 
-#indices of the rows
+# indices of the columns
 Timestamp = 0
 Address = 1
 ZIP = 2
@@ -16,12 +16,15 @@ Notes = 7
 NbrColumns = 8
 
 
-# changes the timestamp string to a datetime object and converts it to US/Eastern
+# changes the timestamp string to a datetime object and converts
+# it to US/Eastern
 def getDate(timestamp):
     # formats the string to a datetime object
-    dateTimeObject = datetime.datetime.strptime(timestamp, '%m/%d/%y %I:%M:%S %p')
-    #sets the original timezone to US/Pacific and the one
-    #it needs to get converted to to US/Eastern
+    dateTimeObject = datetime.datetime.strptime(
+        timestamp,
+        '%m/%d/%y %I:%M:%S %p')
+    # sets the original timezone to US/Pacific and the one
+    # it needs to get converted to to US/Eastern
     oldTimezone = pytz.timezone("US/Pacific")
     newTimezone = pytz.timezone("US/Eastern")
     # sets its timezone to US/Pacific
@@ -51,7 +54,10 @@ def getFullName(name):
 # to seconds.
 def getDuration(duration):
     h, m, s = duration.split(':')
-    totalSeconds = (float(datetime.timedelta(hours=int(h), minutes=int(m), seconds=float(s)).total_seconds()))
+    totalSeconds = (float(datetime.timedelta(
+        hours=int(h),
+        minutes=int(m),
+        seconds=float(s)).total_seconds()))
     return (totalSeconds)
 
 
@@ -78,9 +84,10 @@ def main():
     for row in inputCSV:
         if (line == 0):
             # formats the row back into csv format and prints it
-            output = csv.writer(sys.stdout, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+            output = csv.writer(sys.stdout, delimiter=',', quotechar='"')
             output.writerow(row)
-        # if there are more or less than NbrColumns columns the input is invalid
+        # if there are more or less than NbrColumns columns the input
+        # is invalid
         elif (len(row) != NbrColumns):
             sys.stderr.write("invalid number of columns\n")
         else:
@@ -90,7 +97,9 @@ def main():
                 row[FullName] = getFullName(row[FullName])
                 row[FooDuration] = getDuration(row[FooDuration])
                 row[BarDuration] = getDuration(row[BarDuration])
-                row[TotalDuration] = getTotalDuration(row[BarDuration], row[FooDuration])
+                row[TotalDuration] = getTotalDuration(
+                    row[BarDuration],
+                    row[FooDuration])
             # if any of the above raised a ValueError the input is considered
             # invalid and the row is not getting printed
             except ValueError:
@@ -102,5 +111,6 @@ def main():
                 # prints the row
                 output.writerow(row)
         line += 1
+
 
 main()
